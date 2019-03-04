@@ -1,0 +1,80 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    pets: [Pet]
+    people: [Person]
+    personById(id : String): Person
+}
+
+type Pet {
+    id: Int
+    type: Animal
+    name: String
+    age: Int
+}
+
+type Person {
+    id : String
+    firstName: String
+    middleName: String
+    lastName: String
+    address: Address
+    contact: Contact
+}
+
+type Address {
+    address1: String
+    address2: String
+    city: String
+    state: String
+    country: String
+    zipCode: String
+
+}
+
+type Contact {
+    contactType: ContactType
+    info: String
+}
+
+enum ContactType {
+    PHONE
+    EMAIL
+}
+
+enum Animal {
+    DOG
+    CAT
+    BADGER
+    MAMMOTH
+}
+
+input PersonInput {
+    firstName: String
+    middleName: String
+    lastName: String
+    address: AddressInput
+    contact: ContactInput
+}
+
+input AddressInput {
+    address1: String
+    address2: String
+    city: String
+    state: String
+    country: String
+    zipCode: String
+
+}
+
+input ContactInput {
+    contactType: ContactType
+    info: String
+}
+
+type Mutation {
+    createPerson(input: PersonInput): Person
+}

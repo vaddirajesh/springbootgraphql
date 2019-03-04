@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: local
+#---------
+prfiles: local
+graphiql:
+  props:
+    variables:
+      editorTheme: "solarized dark"
+  endpoint:
+    subscriptions: /subscriptions
+    graphql: /graphql
+  mapping: /graphiql
+  enabled: true
+  static:
+    basePath: /
+voyager:
+  enabled: true
+  endpoint: /graphql
+
